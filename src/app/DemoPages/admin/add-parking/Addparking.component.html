@@ -1,0 +1,96 @@
+<div class="card main-card mb-3">
+  <div class="card-header">
+    <b>Nhập thông tin</b>
+  </div>
+  <div class="card-body">
+    <form>
+      <div class="position-relative row form-group">
+        <label class="col-sm-2 col-form-label">Tên bãi đỗ</label>
+        <div class="col-sm-10">
+          <input
+            class="form-control"
+            #parkingName
+            placeholder="Nhập tên bãi đỗ xe..."
+          />
+        </div>
+      </div>
+      <div class="position-relative row form-group">
+        <label class="col-sm-2 col-form-label">Địa điểm</label>
+        <div class="col-sm-10">
+          <input
+            class="form-control"
+            #address
+            placeholder="Nhập địa điểm bãi đỗ..."
+          />
+        </div>
+      </div>
+      <div class="position-relative row form-group">
+        <label class="col-sm-2 col-form-label">Sức chứa</label>
+        <div class="col-sm-10">
+          <input
+            type="number"
+            class="form-control"
+            #capacity
+            placeholder="Nhập sức chứa"
+          />
+          <small>Nhập định dạng số</small>
+        </div>
+      </div>
+      <div class="position-relative row form-group">
+        <label class="col-sm-2 col-form-label">Giá tiền</label>
+        <div class="col-sm-10">
+          <input  type="number" class="form-control" #blockAmount placeholder="Nhập giá thuê bãi..." />
+          <small>Nhập định dạng số</small>
+        </div>
+      </div>
+      <div class="position-relative row form-group">
+        <label class="col-sm-2 col-form-label">Miêu tả</label>
+        <div class="col-sm-10">
+          <input
+            class="form-control"
+            #describe
+            placeholder="Nhập đặc điểm miêu tả..."
+          />
+        </div>
+      </div>
+      <div class="position-relative row form-group">
+        <label class="col-sm-2 col-form-label">Ảnh bãi đỗ</label>
+        <div class="col-sm-10">
+          <input
+            type="file"
+            accept="image/*"
+            multiple
+            class="form-control-file"
+            #parkingImages
+          />
+          <small class="form-text text-muted">Ảnh bãi đỗ </small>
+        </div>
+      </div>
+      <div class="position-relative row form-check">
+        <div class="col-1">
+          <button
+            (click)="
+              add(
+                parkingName.value,
+                address.value,
+                capacity.value,
+                blockAmount.value,
+                describe.value,
+                parkingImages.value
+              );
+              parkingName.value = '';
+              capacity.value = '';
+              address.value = '';
+              blockAmount.value = '';
+              describe.value='';
+              parkingImages.value = ''
+            "
+            class="mb-2 mr-2 btn btn-primary"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
