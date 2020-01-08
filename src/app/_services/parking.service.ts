@@ -10,8 +10,8 @@ const httpOptions = {
   headers: new HttpHeaders({
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
-    Authorization:
-      "Bearer:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc2LCJyb2xlIjoiYWRtaW4iLCJleHBpcmVkIjoiMjAyMC0wMS0xMlQxNjoxNDozNSswNzowMCJ9.zVD81Wf3K9B7y3BWZ6wgGygrYCV2tGWCeL1h4PBfT5o="
+    "Authorization":
+      "Bearer:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc2LCJyb2xlIjoiYWRtaW4iLCJleHBpcmVkIjoiMjAyMC0wMS0xNVQxMjo0NDowOVoifQ.zRg1sz5Be1VN8HZbiurNjjq71RLrcIkBzhjVePPuyHI="
   })
 };
 
@@ -20,16 +20,16 @@ const httpOptions = {
 })
 export class ParkingService {
   getParking(): Observable<Parking[]> {
-    return this.http.get<Parking[]>(`${environment.apiUrl}`).pipe(
+    return this.http.get<Parking[]>(`${environment.apiUrl}/admin/get/all/parkings/10/1`).pipe(
       tap(receviedParkings =>
         console.log(`receivedParkings = ${JSON.stringify(receviedParkings)}`)
       ),
       catchError(error => of([]))
     );
   }
-
+  
   getParkingFromId(id: number): Observable<Parking> {
-    const url = `${environment.apiUrl}/${id}`;
+    const url = `${environment.apiUrl}/get/parking/:parkingId`;
     return this.http.get<Parking>(url).pipe(
       tap(selectedParking =>
         console.log(`selected parking = ${JSON.stringify(selectedParking)}`)
@@ -39,7 +39,7 @@ export class ParkingService {
   }
   addParking(newParking: Parking): Observable<Parking> {
     return this.http
-      .post<Parking>(`${environment.apiUrl}`, newParking, httpOptions)
+      .post<Parking>(`${environment.apiUrl}/admin/create/parking`, newParking, httpOptions)
       .pipe(
         tap(updatedParking =>
           console.log(`updated parking = ${JSON.stringify(updatedParking)}`)

@@ -43,9 +43,9 @@ import { User } from '../DemoPages/models/users.component';
 const httpOptions = {
   headers: new HttpHeaders({
     "Content-Type": "application/json",
-    // "Access-Control-Allow-Origin": "*",
-    // "Authorization":
-    //   "Bearer:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc2LCJyb2xlIjoiYWRtaW4iLCJleHBpcmVkIjoiMjAyMC0wMS0xMlQxNjoxNDozNSswNzowMCJ9.zVD81Wf3K9B7y3BWZ6wgGygrYCV2tGWCeL1h4PBfT5o="
+     "Access-Control-Allow-Origin": "*",
+     "Authorization":
+      "Bearer:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc2LCJyb2xlIjoiYWRtaW4iLCJleHBpcmVkIjoiMjAyMC0wMS0xMlQxNjoxNDozNSswNzowMCJ9.zVD81Wf3K9B7y3BWZ6wgGygrYCV2tGWCeL1h4PBfT5o="
   })
 };
 
@@ -56,7 +56,7 @@ export class UsersService {
   // private events = "http://www.mocky.io/v2/5ddde6382f000039617eaba5";
   getUser(): Observable<User[]> {
     return this.http
-      .get<User[]>(`${environment.apiUrl}`)
+      .get<User[]>(`${environment.apiUrl}/admin/get/all/owners/:limit/:offset`)
       .pipe(
         tap(receviedParkings =>
           console.log(`receivedParkings = ${JSON.stringify(receviedParkings)}`)

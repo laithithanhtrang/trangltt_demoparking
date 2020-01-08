@@ -15,6 +15,18 @@
         </div>
       </div>
       <div class="position-relative row form-group">
+        <label class="col-sm-2 col-form-label">Sức chứa</label>
+        <div class="col-sm-10">
+          <input
+            type="number"
+            class="form-control"
+            #capacity
+            placeholder="Nhập sức chứa bãi đỗ..."
+          />
+          <small>Nhập định dạng số</small>
+        </div>
+      </div>
+      <div class="position-relative row form-group">
         <label class="col-sm-2 col-form-label">Địa điểm</label>
         <div class="col-sm-10">
           <input
@@ -25,21 +37,14 @@
         </div>
       </div>
       <div class="position-relative row form-group">
-        <label class="col-sm-2 col-form-label">Sức chứa</label>
+        <label class="col-sm-2 col-form-label">Giá tiền</label>
         <div class="col-sm-10">
           <input
             type="number"
             class="form-control"
-            #capacity
-            placeholder="Nhập sức chứa"
+            #blockAmount
+            placeholder="Nhập giá thuê bãi..."
           />
-          <small>Nhập định dạng số</small>
-        </div>
-      </div>
-      <div class="position-relative row form-group">
-        <label class="col-sm-2 col-form-label">Giá tiền</label>
-        <div class="col-sm-10">
-          <input  type="number" class="form-control" #blockAmount placeholder="Nhập giá thuê bãi..." />
           <small>Nhập định dạng số</small>
         </div>
       </div>
@@ -53,37 +58,46 @@
           />
         </div>
       </div>
-      <div class="position-relative row form-group">
+      <!-- <div class="position-relative row form-group">
         <label class="col-sm-2 col-form-label">Ảnh bãi đỗ</label>
         <div class="col-sm-10">
-          <input
-            type="file"
-            accept="image/*"
-            multiple
-            class="form-control-file"
-            #parkingImages
-          />
+          <form>
+            <div class="custom-file">
+              <input
+                type="file"
+                class="custom-file-input"
+                id="file-input"
+                accept="image/*"
+                multiple
+                #parkingImages
+              />
+              <label class="custom-file-label" for="customFile"
+                >Choose file</label
+              >
+            </div>
+          </form>
+
           <small class="form-text text-muted">Ảnh bãi đỗ </small>
         </div>
-      </div>
+      </div> -->
       <div class="position-relative row form-check">
         <div class="col-1">
           <button
             (click)="
               add(
                 parkingName.value,
-                address.value,
                 capacity.value,
+                address.value,
                 blockAmount.value,
-                describe.value,
-                parkingImages.value
+                describe.value
+                
               );
               parkingName.value = '';
               capacity.value = '';
               address.value = '';
               blockAmount.value = '';
-              describe.value='';
-              parkingImages.value = ''
+              describe.value = '';
+              
             "
             class="mb-2 mr-2 btn btn-primary"
           >

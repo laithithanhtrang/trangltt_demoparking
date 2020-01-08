@@ -1,74 +1,17 @@
-<div class="h-100 bg-plum-plate bg-animation">
-  <div class="d-flex h-100 justify-content-center align-items-center">
-    <div class="mx-auto app-login-box col-md-8">
-      <div class="app-logo-inverse mx-auto mb-3"></div>
-      <div class="modal-dialog w-100 mx-auto">
-        <div class="modal-content">
-          <div class="modal-body">
-            <div class="h5 modal-title text-center">
-              <h4 class="mt-2">
-                <span>Please sign in to your account below.</span>
-              </h4>
-            </div>
-            <div
-              id="exampleInputGroup1"
-              role="group"
-              aria-describedby="exampleInputGroup1__BV_description_"
-              class="form-group"
-            >
-              <div>
-                <input
-                  id="exampleInput1"
-                  type="text"
-                  placeholder="Enter email..."
-                  required="required"
-                  aria-required="true"
-                  class="form-control"
-                  aria-describedby="exampleInputGroup1__BV_description_"
-                />
-                <small
-                  tabindex="-1"
-                  id="exampleInputGroup1__BV_description_"
-                  class="form-text text-muted"
-                  >We'll never share your email with anyone else.
-                </small>
-              </div>
-            </div>
-            <div id="exampleInputGroup2" role="group" class="form-group">
-              <div>
-                <input
-                  id="exampleInput2"
-                  type="password"
-                  placeholder="Enter password..."
-                  required="required"
-                  aria-required="true"
-                  class="form-control"
-                />
-              </div>
-            </div>
-            <div class="custom-control custom-checkbox">
-              <input
-                id="exampleCheck"
-                type="checkbox"
-                name="check"
-                autocomplete="off"
-                class="custom-control-input"
-                value="true"
-              /><label for="exampleCheck" class="custom-control-label">
-                Keep me logged in
-              </label>
-            </div>
-            <div class="float-right">
-              <button routerLink="''" type="button" class="btn btn-primary btn-lg">
-                Login to Dashboard
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="text-center text-white opacity-8 mt-3">
-        TTHParking@copyright
-      </div>
-    </div>
+<div class="header center">Điền tên và mật khẩu </div>
+
+<form [formGroup]="loginForm" (ngSubmit)="login()" >
+
+  <mat-form-field>
+    <input matInput type="text" id="username" placeholder="Tên đăng nhập..." autocomplete="off" formControlName="username" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="password" id="password" placeholder="Mật khẩu..." formControlName="password" required>
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">ĐĂNG NHẬP</button>
   </div>
-</div>
+
+</form>

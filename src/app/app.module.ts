@@ -9,6 +9,8 @@ import {ConfigActions} from './ThemeOptions/store/config.actions';
 import {AppRoutingModule} from './app-routing.module';
 import {LoadingBarRouterModule} from '@ngx-loading-bar/router';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
@@ -112,6 +114,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     CommonModule,
     LoadingBarRouterModule,
     Ng2SearchPipeModule,
+    MatSliderModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    
 
     // Angular Bootstrap Components
     PerfectScrollbarModule,
@@ -125,6 +132,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ChartsModule,
   ],
   providers: [
+    
     {
       provide:
       PERFECT_SCROLLBAR_CONFIG,

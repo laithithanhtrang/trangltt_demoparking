@@ -1,12 +1,10 @@
-import { Text } from "@angular/compiler/src/i18n/i18n_ast";
-
 export class Parking {
   id: number;
   parkingName: string;
   capacity: string;
   address: string;
   status: string;
-  blockAmount: string;
+  blockAmount: number;
   parkingImages: string;
   ownerId: number;
   phoneNumber: string;
@@ -15,5 +13,4 @@ export class Parking {
   fullName: string;
   parkings: null;
   created_at: string;
-
 }
