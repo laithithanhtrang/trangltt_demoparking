@@ -1,12 +1,11 @@
 export class Parking {
-  id: number;
+  id?: number;
   parkingName: string;
   capacity: string;
   address: string;
-  status: string;
+  status?: string;
   blockAmount: number;
   parkingImages: string;
-  ownerId: number;
   phoneNumber: string;
   describe: string;
   credential: string;

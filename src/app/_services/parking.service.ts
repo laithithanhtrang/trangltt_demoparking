@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Parking } from "../DemoPages/models/parking.component";
+import { Parking } from "../DemoPages/models/parking.model";
+import { Transaction } from "../DemoPages/models/transactions.model";
 import { Observable } from "rxjs/Observable";
 import { of } from "rxjs/observable/of";
 import { catchError, map, tap } from "rxjs/operators";
@@ -10,8 +11,8 @@ const httpOptions = {
   headers: new HttpHeaders({
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
-    "Authorization":
-      "Bearer:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc2LCJyb2xlIjoiYWRtaW4iLCJleHBpcmVkIjoiMjAyMC0wMS0xNVQxMjo0NDowOVoifQ.zRg1sz5Be1VN8HZbiurNjjq71RLrcIkBzhjVePPuyHI="
+    Authorization:
+      "Bearer:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc2LCJyb2xlIjoiYWRtaW4iLCJleHBpcmVkIjoiMjAyMC0wMS0xMlQxNjoxNDozNSswNzowMCJ9.zVD81Wf3K9B7y3BWZ6wgGygrYCV2tGWCeL1h4PBfT5o="
   })
 };
 
@@ -19,17 +20,19 @@ const httpOptions = {
   providedIn: "root"
 })
 export class ParkingService {
-  getParking(): Observable<Parking[]> {
-    return this.http.get<Parking[]>(`${environment.apiUrl}/admin/get/all/parkings/10/1`).pipe(
-      tap(receviedParkings =>
-        console.log(`receivedParkings = ${JSON.stringify(receviedParkings)}`)
-      ),
-      catchError(error => of([]))
-    );
+  public getParking(): Observable<Parking[]> {
+    return this.http
+      .get<Parking[]>(`${environment.apiUrl}/admin/get/all/parkings/1000/0`)
+      .pipe(
+        tap(receviedParkings =>
+          console.log(`receivedParkings = ${JSON.stringify(receviedParkings)}`)
+        ),
+        catchError(error => of([]))
+      );
   }
-  
-  getParkingFromId(id: number): Observable<Parking> {
-    const url = `${environment.apiUrl}/get/parking/:parkingId`;
+
+  public getParkingFromId(id: number): Observable<Parking> {
+    const url = `${environment.apiUrl}/get/parking/` + id;
     return this.http.get<Parking>(url).pipe(
       tap(selectedParking =>
         console.log(`selected parking = ${JSON.stringify(selectedParking)}`)
@@ -37,17 +40,16 @@ export class ParkingService {
       catchError(error => of(new Parking()))
     );
   }
-  addParking(newParking: Parking): Observable<Parking> {
-    return this.http
-      .post<Parking>(`${environment.apiUrl}/admin/create/parking`, newParking, httpOptions)
-      .pipe(
-        tap(updatedParking =>
-          console.log(`updated parking = ${JSON.stringify(updatedParking)}`)
-        ),
-        catchError(error => of(new Parking()))
-      );
+  public addParking(parking: Parking) {
+    return this.http.post<Parking>(
+      `${environment.apiUrl}/admin/create/parking`,
+      {
+        ...parking
+      },
+      httpOptions
+    );
   }
-  deleteParking(parkingId: number): Observable<Parking> {
+  public deleteParking(parkingId: number): Observable<Parking> {
     if (confirm("Bạn đồng ý xóa bãi đỗ này ?")) {
       return this.http
         .delete<Parking>(
@@ -60,6 +62,23 @@ export class ParkingService {
           catchError(error => of(null))
         );
     }
+  }
+  public getallTransaction(): Observable<Transaction[]> {
+    return this.http.get<Transaction[]>(`${environment.apiUrl}/admin/get/all/transaction`).pipe(
+      tap(receviedTransactions =>
+        console.log(
+          `receivedTransactions = ${JSON.stringify(receviedTransactions)}`
+        )
+      ),
+      catchError(error => of([]))
+    );
+  }
+  public changeParkingstatus(id: number): Observable<Parking> {
+    const url = `${environment.apiUrl}/admin/verify/parking/` + id;
+    return this.http.patch<Parking>(url, id, httpOptions).pipe(
+      tap(_ => console.log(`changed Parking status with Id=${id}`)),
+      catchError(error => of(null))
+    );
   }
   // searchParkings(typedString: string): Observable<Parking[]> {
   //   if (!typedString.trim()) {

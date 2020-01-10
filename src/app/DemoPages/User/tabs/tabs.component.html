@@ -16,16 +16,20 @@
           <th class="text-center">Avatar</th>
           <th class="text-center">Tên chủ bãi</th>
           <th class="text-center">Tên bãi</th>
+          <th class="text-center">Rating</th>
           <th class="text-center">Status</th>
-          <th class="text-center">Số điện thoại</th>
           <th class="text-center">Ngày tạo</th>
           <th class="text-center">Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users">
+        <tr *ngFor="let user of users"
+        [ngStyle]="{
+          'background-color':
+            user.rating < 3.5 ? '	#f7c297' : '#ffffff'
+        }" >
           <td class="text-center text-info" style="width: 80px;">
-            {{ user.credentialId }}
+            {{ user.crendentialId }}
           </td>
           <td class="text-center ">
             <img
@@ -35,13 +39,21 @@
               alt=""
             />
           </td>
-          <td class="text-center text-body">{{ user.phoneNumber }}</td>
-          <td class="text-center text-body">{{ user.cmndImage }}</td>
+          <td class="text-center text-body">{{ user.fullName }}</td>
+          <td class="text-center text-body">{{ user.parkingName }}</td>
+          <td  class=" text-center text-body">
+            <star-rating
+              value="{{ user.rating }}"
+              checkedcolor="yellow"
+              uncheckedcolor="black"
+              size="24px"
+              readonly="true"
+            ></star-rating>
+          </td>
           <td class="text-center text-body">{{ user.status }}</td>
-          <td class="text-center text-body">{{ user.phoneNumber }}</td>
-          <td class="text-center text-body">{{ user.created_at }}</td>
-          <td class ="text-center text-body">
-            <button class="text-center" class=" btn btn-dark">
+          <td class="text-center text-body">{{ user.created_at|date:'dd/MM/yyyy' }}</td>
+          <td class="text-center text-body">
+            <button (click)="disabledOwner()" class="text-center" class=" btn btn-dark">
               Disable
             </button>
           </td>

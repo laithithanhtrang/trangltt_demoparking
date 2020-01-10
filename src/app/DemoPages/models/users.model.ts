@@ -1,10 +1,11 @@
 export class User {
-  credentialId: number;
+  crendentialId: number;
   fullName: string;
   cmndImage: string;
   status: string;
-  // cmndImage: string;
-  // certificateOfLand: string;
   phoneNumber: string;
   created_at: string;
+  parkingName: string;
+  rating: number;
+
 }

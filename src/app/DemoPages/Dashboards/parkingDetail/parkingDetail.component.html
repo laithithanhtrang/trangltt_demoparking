@@ -46,22 +46,22 @@
 
 <div class="card card-outline-secondary my-4">
   <div class="card-header">
-    <b>Tên chủ bãi đỗ: {{ parking.ownerId }}</b>
+    <b>Tên chủ bãi đỗ: {{ parking?.ownerId }}</b>
   </div>
   <div class="card-body">
-    <p>Giá thuê: {{ parking.blockAmount }}/15 phút</p>
+    <p>Giá thuê: {{ parking?.blockAmount }}/15 phút</p>
     <hr />
-    <p>Địa điểm: {{ parking.address }}</p>
+    <p>Địa điểm: {{ parking?.address }}</p>
     <hr />
 
     <p>
       Chủ bãi dễ vui tính dễ thương
     </p>
     <hr />
-    <p>SĐT để liên hệ với chủ bãi: {{ parking.ownerId }}</p>
+    <p>SĐT để liên hệ với chủ bãi: {{ parking?.ownerId }}</p>
     <hr />
-    <div *ngIf="parking.status === 'PENDING'"  class="d-flex justify-content-around">
-      <a href="#" class="btn btn-success">Approve</a>
+    <div *ngIf="parking?.status === 'PENDING'"  class="d-flex justify-content-around">
+      <a  class="btn btn-success" (click) = "changeStatusParkingFromId()">Approve</a>
       <a href="#" class="btn btn-danger">Reject</a>
     </div>
   </div>

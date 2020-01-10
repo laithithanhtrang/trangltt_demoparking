@@ -1,0 +1,14 @@
+<div class="d-block">
+  <canvas routerLink="/viewtransactions"  baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [chartType]="barChartType">
+  </canvas>
+</div>
+<div class="divider"></div>
+<div class="text-center">
+  <button routerLink="/''" mat-button mat-raised-button color="primary">Back</button>
+</div>

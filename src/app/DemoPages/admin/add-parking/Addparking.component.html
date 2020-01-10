@@ -2,109 +2,63 @@
   <div class="card-header">
     <b>Nhập thông tin</b>
   </div>
-  <div class="card-body">
-    <form>
-      <div class="position-relative row form-group">
-        <label class="col-sm-2 col-form-label">Tên bãi đỗ</label>
-        <div class="col-sm-10">
-          <input
-            class="form-control"
-            #parkingName
-            placeholder="Nhập tên bãi đỗ xe..."
-          />
-        </div>
+  <div class="col-md-12">
+    <div [formGroup]="addParkingForm">
+      <div class="form-group">
+        <label for="parkingName">Tên bãi đỗ xe</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Nhập tên bãi đỗ xe ..."
+          formControlName="parkingName"
+        />
       </div>
-      <div class="position-relative row form-group">
-        <label class="col-sm-2 col-form-label">Sức chứa</label>
-        <div class="col-sm-10">
-          <input
-            type="number"
-            class="form-control"
-            #capacity
-            placeholder="Nhập sức chứa bãi đỗ..."
-          />
-          <small>Nhập định dạng số</small>
-        </div>
+      <div class="form-group">
+        <label for="capacity">Sức chứa</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Nhập sức chứa ... "
+          formControlName="capacity"
+        />
       </div>
-      <div class="position-relative row form-group">
-        <label class="col-sm-2 col-form-label">Địa điểm</label>
-        <div class="col-sm-10">
-          <input
-            class="form-control"
-            #address
-            placeholder="Nhập địa điểm bãi đỗ..."
-          />
-        </div>
+      <div class="form-group">
+        <label for="address">Địa chỉ</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Nhập địa chỉ bãi đỗ..."
+          formControlName="address"
+        />
       </div>
-      <div class="position-relative row form-group">
-        <label class="col-sm-2 col-form-label">Giá tiền</label>
-        <div class="col-sm-10">
-          <input
-            type="number"
-            class="form-control"
-            #blockAmount
-            placeholder="Nhập giá thuê bãi..."
-          />
-          <small>Nhập định dạng số</small>
-        </div>
+      <div class="form-group">
+        <label for="blockAmount">Giá tiền</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Nhập giá tiền..."
+          formControlName="blockAmount"
+        />
       </div>
-      <div class="position-relative row form-group">
-        <label class="col-sm-2 col-form-label">Miêu tả</label>
-        <div class="col-sm-10">
-          <input
-            class="form-control"
-            #describe
-            placeholder="Nhập đặc điểm miêu tả..."
-          />
-        </div>
+      <div class="form-group">
+        <label for="describe">Đặc điểm</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Nhập đặc điểm bãi đỗ..."
+          formControlName="describe"
+          
+        />
       </div>
-      <!-- <div class="position-relative row form-group">
-        <label class="col-sm-2 col-form-label">Ảnh bãi đỗ</label>
-        <div class="col-sm-10">
-          <form>
-            <div class="custom-file">
-              <input
-                type="file"
-                class="custom-file-input"
-                id="file-input"
-                accept="image/*"
-                multiple
-                #parkingImages
-              />
-              <label class="custom-file-label" for="customFile"
-                >Choose file</label
-              >
-            </div>
-          </form>
 
-          <small class="form-text text-muted">Ảnh bãi đỗ </small>
-        </div>
-      </div> -->
-      <div class="position-relative row form-check">
-        <div class="col-1">
-          <button
-            (click)="
-              add(
-                parkingName.value,
-                capacity.value,
-                address.value,
-                blockAmount.value,
-                describe.value
-                
-              );
-              parkingName.value = '';
-              capacity.value = '';
-              address.value = '';
-              blockAmount.value = '';
-              describe.value = '';
-              
-            "
-            class="mb-2 mr-2 btn btn-primary"
-          >
-            Submit
-          </button>
-        </div>
-      </div>
-    </form>
+      <button
+        (click)="add()"
+        class="mb-2 btn btn-info"
+        type="button"
+        [disabled]="!addParkingForm.valid"
+      >
+        Save Movie & Exit
+      </button>
+    </div>
   </div>
 </div>

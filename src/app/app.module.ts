@@ -47,11 +47,11 @@ import {FooterComponent} from './Layout/Components/footer/footer.component';
 import {AnalyticsComponent} from './DemoPages/Dashboards/analytics/analytics.component';
 
 // Components
-import {TabsComponent} from './DemoPages/Transcript/tabs/tabs.component';
+import {TabsComponent} from './DemoPages/User/tabs/tabs.component';
 
 
 // Widgets
-import {ChartBoxes3Component} from './DemoPages/Other/chart-boxes3/chart-boxes3.component';
+import {ChartBoxes3Component} from './DemoPages/Static/chart-boxes3/chartscript.component';
 
 //Admin
 import {ParkingsComponent} from './DemoPages/admin/add-parking/Addparking.component';
@@ -59,6 +59,9 @@ import {ParkingsComponent} from './DemoPages/admin/add-parking/Addparking.compon
 // Pages
 import {LoginBoxedComponent} from './DemoPages/admin/admin-login/Login.component';
 import {parkingDetailComponent} from './DemoPages/Dashboards/parkingDetail/parkingDetail.component';
+//Thong ke
+import {TransactionsComponent} from './DemoPages/Static/chart-boxes3/trantable/trantable.component';
+import { RatingModule } from 'ng-starrating';
 
 
 
@@ -101,6 +104,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
     // Dashboard Boxes
     ChartBoxes3Component,
+    TransactionsComponent,
     
 
    //Admin
@@ -118,6 +122,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    RatingModule,
     
 
     // Angular Bootstrap Components

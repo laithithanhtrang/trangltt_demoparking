@@ -3,7 +3,7 @@ import { Observable } from "rxjs/Observable";
 import { Subject } from "rxjs/Subject";
 import { debounceTime, distinctUntilChanged, switchMap } from "rxjs/operators";
 import { Color } from "ng2-charts/ng2-charts";
-import { Parking } from "../../models/parking.component";
+import { Parking } from "../../models/parking.model";
 import { HttpUrlEncodingCodec } from "@angular/common/http";
 import { NgbHighlight } from "@ng-bootstrap/ng-bootstrap";
 import { ParkingService } from "../../../_services/parking.service";

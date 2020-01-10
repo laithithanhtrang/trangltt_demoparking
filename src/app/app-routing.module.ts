@@ -17,11 +17,14 @@ import { LoginBoxedComponent } from "./DemoPages/admin/admin-login/Login.compone
 // Elements
 
 // Components
-import { TabsComponent } from "./DemoPages/Transcript/tabs/tabs.component";
+import { TabsComponent } from "./DemoPages/User/tabs/tabs.component";
 
 // Widgets
 
-import { ChartBoxes3Component } from "./DemoPages/Other/chart-boxes3/chart-boxes3.component";
+import { ChartBoxes3Component } from "./DemoPages/Static/chart-boxes3/chartscript.component";
+//Thong ke giao dich
+import { TransactionsComponent } from "./DemoPages/Static/chart-boxes3/trantable/trantable.component";
+
 //admin
 import { ParkingsComponent } from "./DemoPages/admin/add-parking/Addparking.component";
 
@@ -54,16 +57,13 @@ const routes: Routes = [
       // Widgets
 
       {
-        path: "widgets/chart-boxes-3",
+        path: "transcript",
         component: ChartBoxes3Component,
         data: { extraParameter: "pagesMenu3" }
       },
-      { path: "admin/add-parking", component: ParkingsComponent }
+      { path: "admin/add-parking", component: ParkingsComponent },
+      { path: "viewtransactions", component: TransactionsComponent }
     ]
-  },
-  {
-    path: "login",
-    component: LoginBoxedComponent,
   },
 
   {
@@ -71,7 +71,10 @@ const routes: Routes = [
     component: PagesLayoutComponent,
     children: [
       // User Pages
-      // {path: 'admin/login', component: LoginBoxedComponent, data: {extraParameter: ''}},
+      {
+        path: "login",
+        component: LoginBoxedComponent
+      }
     ]
   },
   { path: "**", redirectTo: "" }

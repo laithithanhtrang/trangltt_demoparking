@@ -1,6 +1,6 @@
 import { Component, OnInit, Injectable } from "@angular/core";
 import { Color } from "ng2-charts/ng2-charts";
-import { Parking } from "../../models/parking.component";
+import { Parking } from "../../models/parking.model";
 import { HttpUrlEncodingCodec } from "@angular/common/http";
 import { NgbHighlight } from "@ng-bootstrap/ng-bootstrap";
 import { ParkingService } from "../../../_services/parking.service";
@@ -32,5 +32,15 @@ export class parkingDetailComponent implements OnInit {
       
       return this.parking=parking;
     });
+  }
+  changeStatusParkingFromId(): void{
+    const id =+this.route.snapshot.paramMap.get('id');
+    console.log(`this.route.snapshot.paramMap = ${JSON.stringify(this.route.snapshot.paramMap)}`);
+    this.parkingService.changeParkingstatus(id).subscribe(changedstatus =>{
+      console.log('parking',changedstatus);
+      return this.parking= changedstatus;
+      
+    })
+    
   }
 }
