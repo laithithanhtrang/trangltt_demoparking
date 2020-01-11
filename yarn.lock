@@ -10,7 +10,7 @@
     "@angular-devkit/core" "7.3.9"
     rxjs "6.3.3"
 
-"@angular-devkit/build-angular@^0.13.7":
+"@angular-devkit/build-angular@^0.13.9":
   version "0.13.9"
   resolved "https://registry.yarnpkg.com/@angular-devkit/build-angular/-/build-angular-0.13.9.tgz#92ef7b55a1aa055b2f5c8ffed4bdb04df86db678"
   integrity sha512-onh07LhdxotDFjja0KKsDWNCwgpM/ymuRr5h0e+vT4AgklP2Uioz1CpzVOgxPIKkdVdGR9QgDinVsWAmY90J8g==
@@ -189,6 +189,13 @@
   version "7.2.15"
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-7.2.15.tgz#b2ba33e472dc5e530047c408ff7a35deba4427b8"
   integrity sha512-Ig5Jr7mnDelaZvSbUd9YhI5am3q1ku9xelAuwvtyDKvQJeKQj3BtTagcOgWrnQBfrJ/FsA/M5Zo48ncSsV0tqQ==
+
+"@angular/material@^7.3.7":
+  version "7.3.7"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-7.3.7.tgz#dcd95e6618ba6254c5880efee1aad349cf5b9140"
+  integrity sha512-Eq+7frkeNGkLOfEtmkmJgR+AgoWajOipXZWWfCSamNfpCcPof82DwvGOpAmgGni9FuN2XFQdqP5MoaffQzIvUA==
+  dependencies:
+    tslib "^1.7.1"
 
 "@angular/platform-browser-dynamic@^7.2.11":
   version "7.2.15"
@@ -379,6 +386,11 @@
   integrity sha512-d9p31r7Nxk0ZH0U39PTH0hiDlJ+qNVGjlt1ucOoTUptxb2v+Y5VMnsxfwN+i3hK4yQnqBi3FMmoMFcd1JHDxdg==
   dependencies:
     "@types/jasmine" "*"
+
+"@types/lodash@^4.14.149":
+  version "4.14.149"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.149.tgz#1342d63d948c6062838fbf961012f74d4e638440"
+  integrity sha512-ijGqzZt/b7BfzcK9vTrS6MFljQRPn5BFWOx8oE0GYxribu6uV+aA9zZuXI1zc/etK9E8nrgdoF2+LgUw7+9tJQ==
 
 "@types/node@*":
   version "12.12.21"
@@ -1456,6 +1468,11 @@ canonical-path@1.0.0:
   resolved "https://registry.yarnpkg.com/canonical-path/-/canonical-path-1.0.0.tgz#fcb470c23958def85081856be7a86e904f180d1d"
   integrity sha512-feylzsbDxi1gPZ1IjystzIQZagYYLvfKrSuygUCgf7z6x790VEzze5QEkdSV1U58RA7Hi0+v6fv4K54atOzATg==
 
+"canvasjs@github:vasilrimar/canvasjs":
+  version "1.8.2-pre"
+  uid "7b94439ad8828eabdd5d20d7bee368b9a4fdfaf2"
+  resolved "https://codeload.github.com/vasilrimar/canvasjs/tar.gz/7b94439ad8828eabdd5d20d7bee368b9a4fdfaf2"
+
 caseless@~0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
@@ -1486,7 +1503,7 @@ chardet@^0.7.0:
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.7.0.tgz#90094849f0937f2eedc2425d0d28a9e5f0cbad9e"
   integrity sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==
 
-chart.js@^2.4.0, chart.js@^2.8.0:
+chart.js@^2.4.0, chart.js@^2.9.3:
   version "2.9.3"
   resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-2.9.3.tgz#ae3884114dafd381bc600f5b35a189138aac1ef7"
   integrity sha512-+2jlOobSk52c1VU6fzkh3UwqHMdSlgH1xFv9FKMqHiNCpXsGPQa/+81AFa+i3jZ253Mq9aAycPwDjnn1XbRNNw==
@@ -3132,6 +3149,11 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.3.tgz#4a12ff1b60376ef09862c2093edd908328be8423"
   integrity sha512-a30VEBm4PEdx1dRB7MFK7BejejvCvBronbLjht+sHuGYj8PHs7M/5Z+rt5lw551vZ7yfTCj4Vuyy3mSJytDWRQ==
 
+hammerjs@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/hammerjs/-/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
+  integrity sha1-BO93hiz/K7edMPdpIJWTAiK/YPE=
+
 handle-thing@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/handle-thing/-/handle-thing-2.0.0.tgz#0e039695ff50c93fc288557d696f3c1dc6776754"
@@ -4273,10 +4295,10 @@ locate-path@^3.0.0:
     p-locate "^3.0.0"
     path-exists "^3.0.0"
 
-lodash-es@^4.17.11:
-  version "4.17.15"
-  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
-  integrity sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
+lodash-es@^4.17.14:
+  version "4.17.14"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.14.tgz#12a95a963cc5955683cee3b74e85458954f37ecc"
+  integrity sha512-7zchRrGa8UZXjD/4ivUWP1867jDkhzTG2c/uj739utSd7O/pFFdxspCemIFKEEjErbcqRzn8nKnGsi7mvTgRPA==
 
 lodash.clonedeep@^4.5.0:
   version "4.5.0"
@@ -4293,7 +4315,7 @@ lodash.tail@^4.1.1:
   resolved "https://registry.yarnpkg.com/lodash.tail/-/lodash.tail-4.1.1.tgz#d2333a36d9e7717c8ad2f7cacafec7c32b444664"
   integrity sha1-0jM6NtnncXyK0vfKyv7HwytERmQ=
 
-lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.5.0, lodash@~4.17.10:
+lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.5.0, lodash@~4.17.10:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
@@ -4659,7 +4681,7 @@ moment@2.18.1:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
   integrity sha1-w2GT3Tzhwu7SrbfIAtu8d6gbHA8=
 
-moment@^2.10.2:
+moment@^2.10.2, moment@^2.24.0:
   version "2.24.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
   integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
@@ -4748,14 +4770,26 @@ ng-bootstrap@^1.6.3:
   dependencies:
     moment "2.18.1"
 
-ng2-charts@2.2.3:
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/ng2-charts/-/ng2-charts-2.2.3.tgz#ca2b9fc1f2bd908b48e826bb6cca2161830afa44"
-  integrity sha512-Kxj2bewn537xGFVkR7AgDmfqV+YH4hIL4R36EjlUI9WCWnphzY+VKZGX+D+usXd8e+znuqly+sbGHjddLxupUA==
+ng-starrating@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/ng-starrating/-/ng-starrating-1.0.11.tgz#3ad3cdabe5d3386b12b04fbc37a3fb227acbf846"
+  integrity sha512-A+CJmrAjBhzm1U0SfTd8QW7l0iQpTxKrAlo5Z+nlR2xctiPOycyY0Xym4885fkOfytXeoEKERlSEvlEz3nqQmw==
+  dependencies:
+    tslib "^1.9.0"
+
+ng2-charts@^2.2.3:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/ng2-charts/-/ng2-charts-2.3.0.tgz#e4dd1f7fe12dc2635d5e8c4f101a8d4c4f433754"
+  integrity sha512-D5K7OqF0m5lOBYvNOsraoEo4OPHja9zfGNj+HWy2nUcP0LP2s+Y/QaQlkG/1rHlwXq9HPm8rLxzSutA0eLHxGQ==
   dependencies:
     "@types/chart.js" "^2.7.48"
     lodash "^4.17.11"
     tslib "^1.9.0"
+
+ng2-search-filter@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/ng2-search-filter/-/ng2-search-filter-0.5.1.tgz#6d5f4e26bd2b2c8c8cc4aad658aabae6a33fb4af"
+  integrity sha512-noN8R+Gyxo5ZuboEOvq+u0zKio6pEf1IVYQTCZfAfXm6ONmzWu/M2xK0di9oVUprDbPBQXCGUuvD5i2GD+35HA==
 
 ngx-perfect-scrollbar@^7.2.1:
   version "7.2.1"
@@ -6033,6 +6067,11 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   integrity sha1-6Eg5bwV9Ij8kOGkkYY4laUFh7Ec=
   dependencies:
     aproba "^1.1.1"
+
+rxjs-compat@^6.5.4:
+  version "6.5.4"
+  resolved "https://registry.yarnpkg.com/rxjs-compat/-/rxjs-compat-6.5.4.tgz#03825692af3fe363e04c43f41ff4113d76bbd305"
+  integrity sha512-rkn+lbOHUQOurdd74J/hjmDsG9nFx0z66fvnbs8M95nrtKvNqCKdk7iZqdY51CGmDemTQk+kUPy4s8HVOHtkfA==
 
 rxjs@6.3.3:
   version "6.3.3"
