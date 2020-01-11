@@ -1,9 +1,19 @@
 import { Component, OnInit } from "@angular/core";
 import { Parking } from "../../models/parking.model";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { HttpClient, HttpEventType, HttpHeaders } from "@angular/common/http";
 import { Router } from "@angular/router";
 import { ParkingService } from "../../../_services/parking.service";
+import { environment } from "../../../../environments/environment";
 import { Route } from "@angular/compiler/src/core";
+const httpOptions = {
+  headers: new HttpHeaders({
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    Authorization:
+      "Bearer:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc2LCJyb2xlIjoiYWRtaW4iLCJleHBpcmVkIjoiMjAyMC0wMS0xN1QxNDoyOToxMiswNzowMCJ9.SO+EzSgwoDrPB0fjEwQlvf0ZwNc49rOOkVAmIbnSD9c="
+  })
+};
 
 @Component({
   selector: "app-Addparking",
@@ -13,11 +23,13 @@ export class ParkingsComponent implements OnInit {
   parking: Parking[] = [];
   addParkingForm: FormGroup;
   loading = false;
+  filetoUpload: File = null;
 
   constructor(
     private parkingService: ParkingService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private http: HttpClient
   ) {}
   ngOnInit() {
     this.addParkingForm = this.fb.group({
@@ -38,6 +50,22 @@ export class ParkingsComponent implements OnInit {
   get f() {
     return this.addParkingForm.controls;
   }
+  fileProgress(fileInput: any) {
+    this.filetoUpload = <File>fileInput.target.files[0];
+  }
+
+  onSubmit() {
+    this.loading = true;
+    const url = `${environment.apiUrl}/files/upload`;
+    const formData = new FormData();
+    formData.append("upload[]", this.filetoUpload);
+    this.http.post(url, formData, httpOptions).subscribe(success => {
+      if (success) {
+        this.loading = false;
+      }
+    });
+  }
+
   add() {
     this.loading = true;
     this.parkingService

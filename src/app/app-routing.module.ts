@@ -29,64 +29,64 @@ import { TransactionsComponent } from "./DemoPages/Static/chart-boxes3/trantable
 import { ParkingsComponent } from "./DemoPages/admin/add-parking/Addparking.component";
 
 const routes: Routes = [
-  {
-    path: "",
-    component: BaseLayoutComponent,
-    children: [
-      // Dashboads
-
-      {
+    {
         path: "",
-        component: AnalyticsComponent,
-        data: { extraParameter: "dashboardsMenu" }
-      },
-      {
-        path: "parkingDetail/:id",
-        component: parkingDetailComponent,
-        data: { extraParameter: "" }
-      },
+        component: BaseLayoutComponent,
+        children: [
+            // Dashboads
 
-      // Components
+            {
+                path: "",
+                component: AnalyticsComponent,
+                data: { extraParameter: "dashboardsMenu" }
+            },
+            {
+                path: "parkingDetail/:id",
+                component: parkingDetailComponent,
+                data: { extraParameter: "" }
+            },
 
-      {
-        path: "components/tabs",
-        component: TabsComponent,
-        data: { extraParameter: "componentsMenu" }
-      },
+            // Components
 
-      // Widgets
+            {
+                path: "components/tabs",
+                component: TabsComponent,
+                data: { extraParameter: "componentsMenu" }
+            },
 
-      {
-        path: "transcript",
-        component: ChartBoxes3Component,
-        data: { extraParameter: "pagesMenu3" }
-      },
-      { path: "admin/add-parking", component: ParkingsComponent },
-      { path: "viewtransactions", component: TransactionsComponent }
-    ]
-  },
+            // Thống kê
 
-  {
-    path: "",
-    component: PagesLayoutComponent,
-    children: [
-      // User Pages
-      {
-        path: "login",
-        component: LoginBoxedComponent
-      }
-    ]
-  },
-  { path: "**", redirectTo: "" }
+            {
+                path: "transcript",
+                component: ChartBoxes3Component,
+                data: { extraParameter: "pagesMenu3" }
+            },
+            { path: "admin/add-parking", component: ParkingsComponent },
+            { path: "viewtransactions", component: TransactionsComponent }
+        ]
+    },
+
+    {
+        path: "",
+        component: PagesLayoutComponent,
+        children: [
+            // User Pages
+            {
+                path: "login",
+                component: LoginBoxedComponent
+            }
+        ]
+    },
+    { path: "**", redirectTo: "" }
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, {
-      scrollPositionRestoration: "enabled",
-      anchorScrolling: "enabled"
-    })
-  ],
-  exports: [RouterModule]
+    imports: [
+        RouterModule.forRoot(routes, {
+            scrollPositionRestoration: "enabled",
+            anchorScrolling: "enabled"
+        })
+    ],
+    exports: [RouterModule]
 })
 export class AppRoutingModule {}

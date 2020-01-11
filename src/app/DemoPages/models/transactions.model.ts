@@ -1,7 +1,7 @@
 export class Transaction {
-    crendentialId: number;
+    id: number;
     parkingId: number;
-    licensePlate: number;
+    licence: number;
     startTime: string;
     endTime: string;
 }

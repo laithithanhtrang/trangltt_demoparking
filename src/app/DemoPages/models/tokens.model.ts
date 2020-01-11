@@ -1,3 +1,3 @@
 export class Tokens {
-  token: string;
+    token: string;
 }

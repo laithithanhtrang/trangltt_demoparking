@@ -1,5 +1,5 @@
 export class User {
-  crendentialId: number;
+  credentialId: number;
   fullName: string;
   cmndImage: string;
   status: string;
