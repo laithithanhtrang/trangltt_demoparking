@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { UsersService } from "../../../_services/users.service";
-import { User } from "../../models/users.model";
+import { User, Owner } from "../../models/users.model";
 import { ActivatedRoute } from "@angular/router";
 
 @Component({
@@ -9,6 +9,7 @@ import { ActivatedRoute } from "@angular/router";
     styleUrls: ["./tabs.component.css"]
 })
 export class TabsComponent implements OnInit {
+    public owners: Owner[] = [];
     public users: User[] = [];
     constructor(
         private route: ActivatedRoute,
@@ -21,12 +22,10 @@ export class TabsComponent implements OnInit {
     getOwnersfromServices(): void {
         this.usersService
             .getOwners()
-            .subscribe(updateParkings => (this.users = updateParkings));
+            .subscribe(updateParkings => (this.owners = updateParkings));
     }
-    disabledOwner(id): void {
-        // const credentialId= +this.route.snapshot.paramMap.get("credentialId");
-        console.log("HUYTESTTTT", id);
-
+    disabledOwner(): void {
+        const id = +this.route.snapshot.paramMap.get("id");
         console.log(
             `this.route.snapshot.paramMap = ${JSON.stringify(
                 this.route.snapshot.paramMap
@@ -34,9 +33,9 @@ export class TabsComponent implements OnInit {
         );
         this.usersService
             .disableOwnerfromService(id)
-            .subscribe(disabledOwner => {
-                console.log("parking", disabledOwner);
-                return (this.users = disabledOwner);
+            .subscribe(changedstatus => {
+                console.log("owner", changedstatus);
+                return (this.owners = changedstatus);
             });
     }
 }

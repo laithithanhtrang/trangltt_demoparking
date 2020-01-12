@@ -1,11 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { Observable } from "rxjs/Observable";
-import { Subject } from "rxjs/Subject";
-import { debounceTime, distinctUntilChanged, switchMap } from "rxjs/operators";
-import { Color } from "ng2-charts/ng2-charts";
 import { Parking } from "../../models/parking.model";
-import { HttpUrlEncodingCodec } from "@angular/common/http";
-import { NgbHighlight } from "@ng-bootstrap/ng-bootstrap";
 import { ParkingService } from "../../../_services/parking.service";
 
 @Component({
@@ -41,8 +35,6 @@ export class AnalyticsComponent implements OnInit {
             this.parking = updateParkings;
             this.clcSum();
         });
-        // this.clcActive(this.parking);
-        //console.log(Parking);
     }
 
     delete(parkingId: number): void {
@@ -54,6 +46,7 @@ export class AnalyticsComponent implements OnInit {
                 );
             });
     }
+    
     clcSum() {
         this.subTotal = 0;
 
@@ -63,15 +56,4 @@ export class AnalyticsComponent implements OnInit {
             }
         }
     }
-
-    // clcActive(parkings) {
-    //   this.numberActive = 0;
-    //   // console.log(this.parking);
-    //   for (let parking of parkings) {
-    //     if (parking.status === "pending") {
-    //       this.numberActive++;
-    //       console.log(this.numberActive);
-    //     }
-    //   }
-    // }
 }

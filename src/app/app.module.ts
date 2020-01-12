@@ -17,7 +17,9 @@ import {
 } from "@angular/material";
 
 import { CommonModule } from "@angular/common";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { JwtInterceptor } from "./_guards/token.interceptor";
+import  {ErrorInterceptor} from './_guards/error.interceptor';
 import { AppComponent } from "./app.component";
 
 // BOOTSTRAP COMPONENTS
@@ -58,6 +60,7 @@ import { ChartBoxes3Component } from "./DemoPages/Static/chart-boxes3/chartscrip
 
 //Admin
 import { ParkingsComponent } from "./DemoPages/admin/add-parking/Addparking.component";
+import { AddImageComponent } from "./DemoPages/admin/add-image/Addimage.component";
 
 // Pages
 import { LoginBoxedComponent } from "./DemoPages/admin/admin-login/Login.component";
@@ -65,8 +68,6 @@ import { parkingDetailComponent } from "./DemoPages/Dashboards/parkingDetail/par
 //Thong ke
 import { TransactionsComponent } from "./DemoPages/Static/chart-boxes3/trantable/trantable.component";
 import { RatingModule } from "ng-starrating";
-
-// Chart.js Examples
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true
@@ -98,7 +99,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         // User Pages
         LoginBoxedComponent,
 
-        // Components
+        // Thong ke nguoi dung
         TabsComponent,
 
         // Dashboard Boxes
@@ -106,7 +107,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         TransactionsComponent,
 
         //Admin
-        ParkingsComponent
+        ParkingsComponent,
+        AddImageComponent
     ],
     imports: [
         BrowserModule,
@@ -134,11 +136,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         ChartsModule
     ],
     providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
         {
             provide: PERFECT_SCROLLBAR_CONFIG,
-            // DROPZONE_CONFIG,
             useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-            // DEFAULT_DROPZONE_CONFIG,
         },
         ConfigActions
     ],

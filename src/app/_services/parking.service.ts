@@ -8,12 +8,7 @@ import { catchError, map, tap } from "rxjs/operators";
 import * as _ from "lodash";
 import { environment } from "../../environments/environment";
 const httpOptions = {
-    headers: new HttpHeaders({
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        Authorization:
-            "Bearer:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc2LCJyb2xlIjoiYWRtaW4iLCJleHBpcmVkIjoiMjAyMC0wMS0xMlQxNjoxNDozNSswNzowMCJ9.zVD81Wf3K9B7y3BWZ6wgGygrYCV2tGWCeL1h4PBfT5o="
-    })
+    headers: new HttpHeaders({ "Content-Type": "application/json" })
 };
 
 @Injectable({
@@ -96,18 +91,6 @@ export class ParkingService {
             catchError(error => of(null))
         );
     }
-    // searchParkings(typedString: string): Observable<Parking[]> {
-    //   if (!typedString.trim()) {
-    //     return of([]);
-    //   }
-    //   return this.http
-    //     .get<Parking[]>(`${this.parkingURL}?name_like=${typedString}`)
-    //     .pipe(
-    //       tap(foundedParking =>
-    //         console.log(`founded parkings = ${JSON.stringify(foundedParking)}`)
-    //       ),
-    //       catchError(error => of(null))
-    //     );
-    // }
+
     constructor(private http: HttpClient) {}
 }

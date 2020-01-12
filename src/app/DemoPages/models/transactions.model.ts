@@ -4,4 +4,5 @@ export class Transaction {
     licence: number;
     startTime: string;
     endTime: string;
+    amount: string;
 }

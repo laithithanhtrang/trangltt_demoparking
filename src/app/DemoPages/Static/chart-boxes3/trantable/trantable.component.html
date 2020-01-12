@@ -18,7 +18,7 @@
                     <th class="text-center">Biển số xe người thuê</th>
                     <th class="text-center">Thời gian bắt đầu</th>
                     <th class="text-center">Thời gian kết thúc</th>
-                    <th class="text-center">Actions</th>
+                    <th class="text-center">Tổng tiền giao dịch</th>
                 </tr>
             </thead>
             <tbody>
@@ -49,9 +49,7 @@
                         {{ transaction?.endTime | date: "HH:mm:ss yyyy-MM-dd" }}
                     </td>
                     <td class="text-center text-body">
-                        <button class="text-center" class=" btn btn-dark">
-                            Disable
-                        </button>
+                        {{ transaction?.amount }}
                     </td>
                 </tr>
             </tbody>

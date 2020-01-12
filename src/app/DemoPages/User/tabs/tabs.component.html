@@ -24,14 +24,14 @@
             </thead>
             <tbody>
                 <tr
-                    *ngFor="let user of users"
+                    *ngFor="let owner of owners"
                     [ngStyle]="{
                         'background-color':
-                            user.rating < 3.5 ? '	#f7c297' : '#ffffff'
+                            owner.stars < 3.5 ? '	#f7c297' : '#ffffff'
                     }"
                 >
                     <td class="text-center text-info" style="width: 80px;">
-                        {{ user.credentialId }}
+                        {{ owner.owner.credentialId }}
                     </td>
                     <td class="text-center ">
                         <img
@@ -41,26 +41,30 @@
                             alt=""
                         />
                     </td>
-                    <td class="text-center text-body">{{ user.fullName }}</td>
                     <td class="text-center text-body">
-                        {{ user.phoneNumber }}
+                        {{ owner.owner.fullName }}
+                    </td>
+                    <td class="text-center text-body">
+                        {{ owner.owner.phoneNumber }}
                     </td>
                     <td class=" text-center text-body">
                         <star-rating
-                            value="{{ user.rating }}"
+                            value="{{ owner.stars }}"
                             checkedcolor="yellow"
                             uncheckedcolor="black"
                             size="24px"
                             readonly="true"
                         ></star-rating>
                     </td>
-                    <td class="text-center text-body">{{ user.status }}</td>
                     <td class="text-center text-body">
-                        {{ user.created_at | date: "dd/MM/yyyy" }}
+                        {{ owner.owner.status }}
+                    </td>
+                    <td class="text-center text-body">
+                        {{ owner.owner.created_at | date: "dd/MM/yyyy" }}
                     </td>
                     <td class="text-center text-body">
                         <button
-                            (click)="disabledOwner(user.credentialId)"
+                            (click)="disabledOwner(owner.owner.credentialId)"
                             class="text-center"
                             class=" btn btn-dark"
                         >

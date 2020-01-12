@@ -24,12 +24,9 @@ export class LoginBoxedComponent implements OnInit {
     get f() {
         return this.loginForm.controls;
     }
-    login(user: { username: string; password: string }) {
+    login() {
         this.authService
-            .login({
-                username: this.f.username.value,
-                password: this.f.password.value
-            })
+            .login(this.f.username.value, this.f.password.value)
             .subscribe(success => {
                 if (success) {
                     this.router.navigate(['/""']);

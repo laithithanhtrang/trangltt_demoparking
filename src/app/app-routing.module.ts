@@ -27,6 +27,7 @@ import { TransactionsComponent } from "./DemoPages/Static/chart-boxes3/trantable
 
 //admin
 import { ParkingsComponent } from "./DemoPages/admin/add-parking/Addparking.component";
+import { AddImageComponent } from "./DemoPages/admin/add-image/Addimage.component";
 
 const routes: Routes = [
     {
@@ -62,7 +63,8 @@ const routes: Routes = [
                 data: { extraParameter: "pagesMenu3" }
             },
             { path: "admin/add-parking", component: ParkingsComponent },
-            { path: "viewtransactions", component: TransactionsComponent }
+            { path: "viewtransactions", component: TransactionsComponent },
+            { path: "add_image", component: AddImageComponent }
         ]
     },
 
