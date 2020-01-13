@@ -28,8 +28,8 @@ import { ChartBoxes3Component } from "./DemoPages/Static/chart-boxes3/chartscrip
 import { TransactionsComponent } from "./DemoPages/Static/chart-boxes3/trantable/trantable.component";
 
 //admin
-import { ParkingsComponent } from "./DemoPages/admin/add-parking/Addparking.component";
-import { AddImageComponent } from "./DemoPages/admin/add-image/Addimage.component";
+import { ParkingsComponent } from "./DemoPages/admin/add-parking/addParking.component";
+import { AddImageComponent } from "./DemoPages/admin/add-image/addImage.component";
 
 const routes: Routes = [
     {
@@ -41,12 +41,12 @@ const routes: Routes = [
             {
                 path: "",
                 component: AnalyticsComponent,
-                data: { extraParameter: "dashboardsMenu" }
+                
             },
             {
                 path: "parkingDetail/:id",
                 component: parkingDetailComponent,
-                data: { extraParameter: "" }
+               
             },
 
             // Components
@@ -64,8 +64,7 @@ const routes: Routes = [
 
             {
                 path: "transcript",
-                component: ChartBoxes3Component,
-                data: { extraParameter: "pagesMenu3" }
+                component: ChartBoxes3Component
             },
             { path: "admin/add-parking", component: ParkingsComponent },
             { path: "viewtransactions", component: TransactionsComponent },

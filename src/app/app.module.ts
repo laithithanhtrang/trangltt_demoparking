@@ -63,8 +63,8 @@ import { UserComponent } from "./DemoPages/User/User/users.component";
 import { ChartBoxes3Component } from "./DemoPages/Static/chart-boxes3/chartscript.component";
 
 //Admin
-import { ParkingsComponent } from "./DemoPages/admin/add-parking/Addparking.component";
-import { AddImageComponent } from "./DemoPages/admin/add-image/Addimage.component";
+import { ParkingsComponent } from "./DemoPages/admin/add-parking/addParking.component";
+import { AddImageComponent } from "./DemoPages/admin/add-image/addImage.component";
 
 // Pages
 import { LoginBoxedComponent } from "./DemoPages/admin/admin-login/Login.component";
