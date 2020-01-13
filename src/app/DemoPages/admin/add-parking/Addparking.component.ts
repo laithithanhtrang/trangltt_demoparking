@@ -7,12 +7,7 @@ import { ParkingService } from "../../../_services/parking.service";
 import { environment } from "../../../../environments/environment";
 import { Route } from "@angular/compiler/src/core";
 const httpOptions = {
-    headers: new HttpHeaders({
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        Authorization:
-            "Bearer:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc2LCJyb2xlIjoiYWRtaW4iLCJleHBpcmVkIjoiMjAyMC0wMS0xN1QxNDoyOToxMiswNzowMCJ9.SO+EzSgwoDrPB0fjEwQlvf0ZwNc49rOOkVAmIbnSD9c="
-    })
+    headers: new HttpHeaders({ "Content-Type": "application/json" })
 };
 
 @Component({

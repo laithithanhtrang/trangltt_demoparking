@@ -15,12 +15,15 @@ import {
     MatFormFieldModule,
     MatInputModule
 } from "@angular/material";
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { CommonModule } from "@angular/common";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { JwtInterceptor } from "./_guards/token.interceptor";
 import  {ErrorInterceptor} from './_guards/error.interceptor';
 import { AppComponent } from "./app.component";
+import { JwPaginationComponent } from 'jw-angular-pagination';
+import { PagerService } from './_services/page.service';
 
 // BOOTSTRAP COMPONENTS
 import { AngularFontAwesomeModule } from "angular-font-awesome";
@@ -52,8 +55,9 @@ import { FooterComponent } from "./Layout/Components/footer/footer.component";
 // Dashboards
 import { AnalyticsComponent } from "./DemoPages/Dashboards/analytics/analytics.component";
 
-// Components
-import { TabsComponent } from "./DemoPages/User/tabs/tabs.component";
+// User
+import { TabsComponent } from "./DemoPages/User/Owner/tabs.component";
+import { UserComponent } from "./DemoPages/User/User/users.component";
 
 // Widgets
 import { ChartBoxes3Component } from "./DemoPages/Static/chart-boxes3/chartscript.component";
@@ -80,6 +84,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         BaseLayoutComponent,
         PagesLayoutComponent,
         PageTitleComponent,
+        JwPaginationComponent,
+        
 
         // HEADER
         HeaderComponent,
@@ -99,8 +105,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         // User Pages
         LoginBoxedComponent,
 
-        // Thong ke nguoi dung
+        // Quan li nguoi dung
         TabsComponent,
+        UserComponent,
 
         // Dashboard Boxes
         ChartBoxes3Component,
@@ -131,7 +138,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
-
+        NgxPaginationModule,
         // Charts
         ChartsModule
     ],
@@ -142,7 +149,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
             provide: PERFECT_SCROLLBAR_CONFIG,
             useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
         },
-        ConfigActions
+        ConfigActions,
+        PagerService,
+
     ],
     bootstrap: [AppComponent]
 })

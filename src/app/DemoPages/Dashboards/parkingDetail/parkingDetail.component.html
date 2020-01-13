@@ -46,7 +46,7 @@
 
 <div class="card card-outline-secondary my-4">
     <div class="card-header">
-        <b>Tên chủ bãi đỗ: {{ parking?.ownerId }}</b>
+        <b>Tên chủ bãi đỗ: {{ getOwnerName(owners.id)  }}</b>
     </div>
     <div class="card-body">
         <p>Giá thuê: {{ parking?.blockAmount }}/15 phút</p>
@@ -58,7 +58,7 @@
             Chủ bãi dễ vui tính dễ thương
         </p>
         <hr />
-        <p>SĐT để liên hệ với chủ bãi: {{ parking?.ownerId }}</p>
+        <p>SĐT để liên hệ với chủ bãi: {{ getOwnerName(owners.phoneNumber) }}</p>
         <hr />
         <div
             *ngIf="parking?.status === 'PENDING'"

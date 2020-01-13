@@ -1,14 +1,24 @@
 <div class="d-block">
-  <canvas routerLink="/viewtransactions"  baseChart
-          [datasets]="barChartData"
-          [labels]="barChartLabels"
-          [options]="barChartOptions"
-          [plugins]="barChartPlugins"
-          [legend]="barChartLegend"
-          [chartType]="barChartType">
-  </canvas>
+    <canvas
+        baseChart
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType"
+    >
+    </canvas>
 </div>
 <div class="divider"></div>
-<div class="text-center">
-  <button routerLink="/''" mat-button mat-raised-button color="primary">Back</button>
+<div class="d-block p-4 text-center card-footer">
+    <button
+        routerLink="/viewtransactions"
+        class="btn-pill btn-shadow btn-wide fsize-1 btn btn-dark btn-lg"
+    >
+        <span class="mr-2 opacity-7">
+            <i class="fa fa-cog fa-spin"></i>
+        </span>
+        <span class="mr-1">View Complete Report</span>
+    </button>
 </div>

@@ -49,7 +49,6 @@ export class AnalyticsComponent implements OnInit {
     
     clcSum() {
         this.subTotal = 0;
-
         for (let parking of this.parking) {
             if (parking.status === "APPROVED") {
                 this.subTotal++;

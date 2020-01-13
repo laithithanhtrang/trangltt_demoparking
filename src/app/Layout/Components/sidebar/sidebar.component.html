@@ -28,7 +28,7 @@
                             [closeOthers]="true"
                             [activeIds]="extraParameter"
                         >
-                            <ngb-panel id="dashboardsMenu">
+                            <ngb-panel>
                                 <ng-template ngbPanelHeader>
                                     <button
                                         routerLink="/''"
@@ -51,17 +51,33 @@
                                 <ng-template ngbPanelHeader>
                                     <button
                                         routerLinkActive="active-item"
-                                        routerLink="/components/tabs"
+                                        routerLink="/owners"
                                         ngbPanelToggle
                                         class="vsm-link"
                                     >
-                                        <i class="vsm-icon pe-7s-users"></i>
+                                        <i class="vsm-icon pe-7s-key"></i>
                                         <span class="vsm-title"
                                             >Quản lý người cho thuê bãi</span
                                         >
                                     </button>
                                 </ng-template>
                             </ngb-panel>
+                            <ngb-panel>
+                                <ng-template ngbPanelHeader>
+                                    <button
+                                        routerLink="/users"
+                                        routerLinkActive="active-item"
+                                        ngbPanelToggle
+                                        class="vsm-link"
+                                    >
+                                        <i class="vsm-icon pe-7s-add-user"></i>
+                                        <span class="vsm-title"
+                                            >Quản lý tài khoản </span
+                                        >
+                                    </button>
+                                </ng-template>
+                            </ngb-panel>
+
                             <ngb-panel id="formElementsMenu">
                                 <ng-template ngbPanelHeader>
                                     <button ngbPanelToggle class="vsm-link">
@@ -83,17 +99,6 @@
                                                     ><span class="vsm-title"
                                                         >Thống kê giao
                                                         dịch</span
-                                                    ></a
-                                                >
-                                            </div>
-                                            <div class="vsm-item">
-                                                <a
-                                                    routerLinkActive="active-item"
-                                                    routerLink="widgets/chart-boxes-3"
-                                                    class="vsm-link"
-                                                    ><span class="vsm-title"
-                                                        >Thống kê người sử
-                                                        dụng</span
                                                     ></a
                                                 >
                                             </div>

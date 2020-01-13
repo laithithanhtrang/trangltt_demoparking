@@ -1,5 +1,6 @@
 import { Component, OnInit, Injectable } from "@angular/core";
 import { ParkingService } from "../../../_services/parking.service";
+import { UsersService } from "../../../_services/users.service";
 import { ActivatedRoute } from "@angular/router";
 
 @Component({
@@ -9,14 +10,17 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class parkingDetailComponent implements OnInit {
     public parking: any;
+    public owners: any;
 
     constructor(
         private route: ActivatedRoute,
-        private parkingService: ParkingService
+        private parkingService: ParkingService,
+        private userService: UsersService
     ) {}
 
     ngOnInit() {
         this.getParkingFromRoute();
+        this.getOwnersfromServices();
     }
     getParkingFromRoute(): void {
         const id = +this.route.snapshot.paramMap.get("id");
@@ -46,4 +50,16 @@ export class parkingDetailComponent implements OnInit {
                 return (this.parking = changedstatus);
             });
     }
+    getOwnersfromServices(): void {
+        this.userService
+            .getOwners()
+            .subscribe(updateParkings => (this.owners = updateParkings));
+    }
+    getOwnerName(id: number) {
+        const found = this.owners.find(owner => owner.id === id);
+        console.log("aaaaaaaaaaa",found);
+         // tim nguoi dung co id trung voi ownerId trong bai do
+        return found.owner.fullName;
+    }
+    
 }

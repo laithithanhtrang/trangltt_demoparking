@@ -17,7 +17,9 @@ import { LoginBoxedComponent } from "./DemoPages/admin/admin-login/Login.compone
 // Elements
 
 // Components
-import { TabsComponent } from "./DemoPages/User/tabs/tabs.component";
+import { TabsComponent } from "./DemoPages/User/Owner/tabs.component";
+import { UserComponent } from "./DemoPages/User/User/users.component";
+
 
 // Widgets
 
@@ -50,9 +52,12 @@ const routes: Routes = [
             // Components
 
             {
-                path: "components/tabs",
+                path: "owners",
                 component: TabsComponent,
-                data: { extraParameter: "componentsMenu" }
+            },
+            {
+                path: "users",
+                component: UserComponent,
             },
 
             // Thống kê
@@ -67,18 +72,8 @@ const routes: Routes = [
             { path: "add_image", component: AddImageComponent }
         ]
     },
+    { path: "login", component:LoginBoxedComponent },
 
-    {
-        path: "",
-        component: PagesLayoutComponent,
-        children: [
-            // User Pages
-            {
-                path: "login",
-                component: LoginBoxedComponent
-            }
-        ]
-    },
     { path: "**", redirectTo: "" }
 ];
 
