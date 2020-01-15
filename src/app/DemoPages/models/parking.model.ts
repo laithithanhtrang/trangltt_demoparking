@@ -5,6 +5,8 @@ export class Parking {
     address: string;
     status?: string;
     blockAmount: number;
+    payment?: string;
+    kindOf?:string;
     parkingImages: string;
     phoneNumber: string;
     describe: string;
@@ -12,4 +14,6 @@ export class Parking {
     fullName: string;
     parkings: null;
     created_at: string;
+    latitude?: string;
+    longitude?:string;
 }

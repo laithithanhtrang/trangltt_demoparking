@@ -29,7 +29,7 @@ export class LoginBoxedComponent implements OnInit {
             .login(this.f.username.value, this.f.password.value)
             .subscribe(success => {
                 if (success) {
-                    this.router.navigate(['/""']);
+                    this.router.navigate(['/home/analytic']);
                 }
             });
     }

@@ -1,13 +1,19 @@
 import { Component, OnInit } from "@angular/core";
 import { ChartOptions, ChartType, ChartDataSets } from "chart.js";
 import * as pluginDataLabels from "chartjs-plugin-datalabels";
+import { HttpClient } from '@angular/common/http';
 import { Label } from "ng2-charts";
+import {Data} from "../../models/data.model"
 
 @Component({
     selector: "app-bar-chart",
     templateUrl: "./chartscript.component.html"
 })
 export class ChartBoxes3Component implements OnInit {
+    data: Data[];
+    url ="http://localhost:3009/results";
+    success =[];
+    fail =[];
     public barChartOptions: ChartOptions = {
         responsive: true,
         // We use these empty structures as placeholders for dynamic theming.
@@ -26,22 +32,29 @@ export class ChartBoxes3Component implements OnInit {
 
     public barChartData: ChartDataSets[] = [
         {
-            data: [65, 59, 80, 81, 56, 55],
+            data: this.success,
             label: "Giao dịch thành công",
-            backgroundColor: "rgb(0, 64, 128)",
-            hoverBackgroundColor: "rgb(0, 128, 255)"
+            backgroundColor: "rgb(0, 128, 255)",
+            hoverBackgroundColor: "rgb(0, 64, 128)"
         },
         {
-            data: [28, 48, 40, 19, 86, 27],
+            data: this.fail,
             label: "Giao dịch thất bại",
-            backgroundColor: "rgb(204, 0, 0)",
-            hoverBackgroundColor: "rgb(255, 51, 51)"
+            backgroundColor: "rgb(255, 51, 51)",
+            hoverBackgroundColor: "rgb(204, 0, 0)"
         }
     ];
 
-    constructor() {}
+    constructor(private http: HttpClient) {}
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.http.get(this.url).subscribe((res: Data[]) => {
+          res.forEach(y => {
+            this.success.push(y.success);
+            this.fail.push(y.fail);
+          })
+        })
+    }
 
     // events
     public chartClicked({

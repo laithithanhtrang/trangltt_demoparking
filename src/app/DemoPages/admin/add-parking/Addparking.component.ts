@@ -1,15 +1,13 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, createPlatformFactory } from "@angular/core";
 import { Parking } from "../../models/parking.model";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { HttpClient, HttpEventType, HttpHeaders } from "@angular/common/http";
 import { Router } from "@angular/router";
 import { ParkingService } from "../../../_services/parking.service";
-import { environment } from "../../../../environments/environment";
-import { Route } from "@angular/compiler/src/core";
+
 const httpOptions = {
     headers: new HttpHeaders({ "Content-Type": "application/json" })
 };
-
 @Component({
     selector: "app-Addparking",
     templateUrl: "./Addparking.component.html"
@@ -19,6 +17,8 @@ export class ParkingsComponent implements OnInit {
     addParkingForm: FormGroup;
     loading = false;
     filetoUpload: File = null;
+    public capacityPattern = "^((?+?[0-9]*)?)?[0-9_- ()]*$";
+    public capacityError = "";
 
     constructor(
         private parkingService: ParkingService,
@@ -28,9 +28,11 @@ export class ParkingsComponent implements OnInit {
     ) {}
     ngOnInit() {
         this.addParkingForm = this.fb.group({
-            parkingName: ["", Validators.required],
+            parkingName: ["", [Validators.required]],
             capacity: [""],
             address: [""],
+            payment:[""],
+            kindOf:[""],
             blockAmount: [""],
             describe: [""],
             parkingImages: [""],
@@ -38,36 +40,27 @@ export class ParkingsComponent implements OnInit {
             credential: [""],
             fullName: [""],
             parkings: [""],
-            created_at: [""]
+            created_at: [""],
+            latitude: [""],
+            longitude: [""]
         });
     }
 
     get f() {
         return this.addParkingForm.controls;
     }
-    fileProgress(fileInput: any) {
-        this.filetoUpload = <File>fileInput.target.files[0];
-    }
-
-    onSubmit() {
-        this.loading = true;
-        const url = `${environment.apiUrl}/files/upload`;
-        const formData = new FormData();
-        formData.append("upload[]", this.filetoUpload);
-        this.http.post(url, formData, httpOptions).subscribe(success => {
-            if (success) {
-                this.loading = false;
-            }
-        });
-    }
-
     add() {
+        if (this.addParkingForm.invalid) {
+            return;
+        }
         this.loading = true;
         this.parkingService
             .addParking({
                 parkingName: this.f.parkingName.value,
                 capacity: this.f.capacity.value,
                 address: this.f.address.value,
+                payment: this.f.payment.value,
+                kindOf: this.f.kindOf.value,
                 blockAmount: this.f.blockAmount.value,
                 describe: this.f.describe.value,
                 parkingImages: this.f.parkingImages.value,
@@ -75,15 +68,29 @@ export class ParkingsComponent implements OnInit {
                 credential: this.f.credential.value,
                 fullName: this.f.fullName.value,
                 parkings: this.f.parkings.value,
-                created_at: this.f.created_at.value
+                created_at: this.f.created_at.value,
+                latitude: this.f.latitude.value,
+                longitude: this.f.longitude.value
             })
             .subscribe(
                 addParking => {
                     this.loading = false;
                     this.addParkingForm.reset();
-                    this.router.navigate(["/''"]);
                 },
                 error => {}
             );
     }
 }
+//     validateCapacity() {
+//         if (this.addParkingForm.get("capacity").value === "") {
+//             this.capacityError = "Capacity is required";
+//         } else if (this.addParkingForm.get("phone").invalid) {
+//             this.capacityError = "Capacity is require, is number";
+//         }
+//         return (
+//             this.addParkingForm.get("capacity").invalid &&
+//             (this.addParkingForm.get("capacity").touched ||
+//                 this.addParkingForm.get("capacity").dirty)
+//         );
+//     }
+// }

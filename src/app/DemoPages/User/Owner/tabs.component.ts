@@ -22,15 +22,10 @@ export class TabsComponent implements OnInit {
     getOwnersfromServices(): void {
         this.usersService
             .getOwners()
-            .subscribe(updateParkings => (this.owners = updateParkings));
+            .subscribe(updateOwners => {this.owners = updateOwners;});
     }
-    disabledOwner(): void {
-        const id = +this.route.snapshot.paramMap.get("id");
-        console.log(
-            `this.route.snapshot.paramMap = ${JSON.stringify(
-                this.route.snapshot.paramMap
-            )}`
-        );
+    disabledOwner(id): void {
+        console.log(id);
         this.usersService
             .disableOwnerfromService(id)
             .subscribe(changedstatus => {

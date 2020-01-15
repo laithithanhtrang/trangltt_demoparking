@@ -32,14 +32,15 @@ import { ParkingsComponent } from "./DemoPages/admin/add-parking/addParking.comp
 import { AddImageComponent } from "./DemoPages/admin/add-image/addImage.component";
 
 const routes: Routes = [
+    { path: "", component:LoginBoxedComponent },
     {
-        path: "",
+        path: "home",
         component: BaseLayoutComponent,
         children: [
             // Dashboads
 
             {
-                path: "",
+                path: "analytic",
                 component: AnalyticsComponent,
                 
             },
@@ -66,7 +67,7 @@ const routes: Routes = [
                 path: "transcript",
                 component: ChartBoxes3Component
             },
-            { path: "admin/add-parking", component: ParkingsComponent },
+            { path: "add-parking", component: ParkingsComponent },
             { path: "viewtransactions", component: TransactionsComponent },
             { path: "add_image", component: AddImageComponent }
         ]

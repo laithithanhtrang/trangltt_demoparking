@@ -1,160 +1,170 @@
 <div class="mb-3 card">
-  <div class="card-header">
-    <i class="header-icon lnr-charts icon-gradient bg-happy-green"> </i>
-    Phân tích số liệu theo tháng
-  </div>
-  <div class="no-gutters row ">
-    <div class="col-sm-4 col-md-4 col-xl-4">
-      <div
-        class="card no-shadow rm-border bg-transparent widget-chart text-left"
-      >
-        <div class="icon-wrapper rounded-circle">
-          <div class="icon-wrapper-bg opacity-10 bg-info"></div>
-          <i class="pe-7s-calculator text-white opacity-8"></i>
-        </div>
-        <div class="widget-chart-content">
-          <div class="widget-subheading"><b>Tổng bãi đỗ xe</b></div>
-          <div class="widget-numbers">{{ parking?.length }}</div>
-          <div class="widget-description opacity-8 text-focus">
-            <div class="d-inline text-danger pr-1">
-              <span class="pl-1">100%</span>
+    <div class="card-header">
+        <i class="header-icon lnr-charts icon-gradient bg-happy-green"> </i>
+        Phân tích số liệu theo tháng
+    </div>
+    <div class="no-gutters row ">
+        <div class="col-sm-4 col-md-4 col-xl-4">
+            <div
+                class="card no-shadow rm-border bg-transparent widget-chart text-left"
+            >
+                <div class="icon-wrapper rounded-circle">
+                    <div class="icon-wrapper-bg opacity-10 bg-info"></div>
+                    <i class="pe-7s-calculator text-white opacity-8"></i>
+                </div>
+                <div class="widget-chart-content">
+                    <div class="widget-subheading"><b>Tổng bãi đỗ xe</b></div>
+                    <div class="widget-numbers">{{ parking?.length }}</div>
+                    <div class="widget-description opacity-8 text-focus">
+                        <div class="d-inline text-danger pr-1">
+                            <span class="pl-1">100%</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+            <div class="divider m-0 d-md-none d-sm-block"></div>
         </div>
-      </div>
-      <div class="divider m-0 d-md-none d-sm-block"></div>
+        <div class="col-sm-4 col-md-4 col-xl-4">
+            <div
+                class="card no-shadow rm-border bg-transparent widget-chart text-left"
+            >
+                <div class="icon-wrapper rounded-circle">
+                    <div class="icon-wrapper-bg opacity-9 bg-success"></div>
+                    <i class="pe-7s-check text-white"></i>
+                </div>
+                <div class="widget-chart-content">
+                    <div class="widget-subheading"><b>Đang hoạt động</b></div>
+                    <div class="widget-numbers">
+                        <span>{{ subTotal }}</span>
+                    </div>
+                    <div class="widget-description opacity-8 text-focus">
+                        <span class="text-info pl-1">
+                            <span class="pl-1"
+                                >{{ (subTotal / parking?.length) * 100 }}%</span
+                            >
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="divider m-0 d-md-none d-sm-block"></div>
+        </div>
+        <div class="col-sm-4 col-md-4 col-xl-4">
+            <div
+                class="card no-shadow rm-border bg-transparent widget-chart text-left"
+            >
+                <div class="icon-wrapper rounded-circle">
+                    <div class="icon-wrapper-bg opacity-9 badge-warning"></div>
+                    <i class="pe-7s-timer text-white"></i>
+                </div>
+                <div class="widget-chart-content">
+                    <div class="widget-subheading"><b>Pending</b></div>
+                    <div class="widget-numbers">
+                        <span>{{ numberPending }}</span>
+                    </div>
+                    <div class="widget-description text-focus">
+                        <span class="text-warning pl-1">
+                            <span class="pl-1"
+                                >{{
+                                    ((parking?.length - numberPending) /
+                                        parking?.length) *
+                                        100
+                                }}%</span
+                            >
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-sm-4 col-md-4 col-xl-4">
-      <div
-        class="card no-shadow rm-border bg-transparent widget-chart text-left"
-      >
-        <div class="icon-wrapper rounded-circle">
-          <div class="icon-wrapper-bg opacity-9 bg-success"></div>
-          <i class="pe-7s-check text-white"></i>
-        </div>
-        <div class="widget-chart-content">
-          <div class="widget-subheading"><b>Đang hoạt động</b></div>
-          <div class="widget-numbers">
-            <span>{{ subTotal }}</span>
-          </div>
-          <div class="widget-description opacity-8 text-focus">
-            <span class="text-info pl-1">
-              <span class="pl-1"
-                >{{ (subTotal / parking?.length) * 100 }}%</span
-              >
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="divider m-0 d-md-none d-sm-block"></div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-xl-4">
-      <div
-        class="card no-shadow rm-border bg-transparent widget-chart text-left"
-      >
-        <div class="icon-wrapper rounded-circle">
-          <div class="icon-wrapper-bg opacity-9 badge-warning"></div>
-          <i class="pe-7s-timer text-white"></i>
-        </div>
-        <div class="widget-chart-content">
-          <div class="widget-subheading"><b>Pending</b></div>
-          <div class="widget-numbers">
-            <span>{{ parking?.length - subTotal }}</span>
-          </div>
-          <div class="widget-description text-focus">
-            <span class="text-warning pl-1">
-              <span class="pl-1"
-                >{{
-                  ((parking?.length - subTotal) / parking?.length) * 100
-                }}%</span
-              >
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 <div class="page-title-actions">
-  <div class="container">
-    <div class="row">
-      <button
-        type="button"
-        class="btn-shadow d-inline-flex align-items-center btn btn-success mr-2"
-        routerLink="/admin/add-parking"
-      >
-        <fa class="mr-2" name="plus"></fa>
-        Create New
-      </button>
-      <div class="search-parking">
-        <input
-          class="form-control"
-          type="text"
-          name="search"
-          [(ngModel)]="searchText"
-          autocomplete="off"
-          placeholder="Nhập thông tin tìm kiếm"
-        />
-      </div>
-    </div>
-  </div>
-  <div class=" mt-sm-2 mb-sm-4 main-card mb-3 card">
-    <div class="card-header">
-      <div
-        class="card-header-title font-size-lg text-capitalize font-weight-normal"
-      >
-        Trạng thái bãi đỗ xe
-      </div>
-    </div>
-    <div class="table-responsive">
-      <table
-        class="align-middle text-truncate mb-0 table table-borderless table-hover"
-      >
-        <thead>
-          <tr>
-            <th class="text-center">#</th>
-            <th class="text-center">Tên bãi đỗ</th>
-            <th class="text-center">Sức chứa</th>
-            <th class="text-center">Địa điểm</th>
-            <th class="text-center">
-              Status
-            </th>
-            <th class="text-center">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let parking of parking | filter: searchText">
-            <td class="text-center text-info" style="width: 80px;">
-              {{ parking.id }}
-            </td>
-            <td class="text-center text-body">{{ parking.parkingName }}</td>
-            <td class="text-center text-body">{{ parking.capacity }}</td>
-            <td class="text-center text-body">{{ parking.address }}</td>
-            <td class="text-center">
-              <button
+    <div class="container">
+        <div class="row">
+            <button
                 type="button"
-                [ngStyle]="{
-                  'background-color':
-                    parking.status === 'PENDING' ? '#B22222' : '#228B22'
-                }"
-                class="btn btn-outline-light"
-                routerLink="parkingDetail/{{parking.id}}"
-              >
-                {{ parking.status }}
-              </button>
-            </td>
-            <td class="text-center text-body">
-              <button
-                class="border-0 btn-transition btn btn-outline-danger text-center"
-                (click)="delete(parking.id)"
-              >
-                <i class="fa fa-trash"></i>
-              </button>
-            </td>
-            <!--{{parking.status}}//-->
-          </tr>
-        </tbody>
-      </table>
+                class="btn-shadow d-inline-flex align-items-center btn btn-success mr-2"
+                routerLink="/home/add-parking"
+            >
+                <fa class="mr-2" name="plus"></fa>
+                Create New
+            </button>
+            <div class="search-parking">
+                <input
+                    class="form-control"
+                    type="text"
+                    name="search"
+                    [(ngModel)]="searchText"
+                    autocomplete="off"
+                    placeholder="Nhập thông tin tìm kiếm"
+                />
+            </div>
+        </div>
     </div>
-  </div>
+    <div class=" mt-sm-2 mb-sm-4 main-card mb-3 card">
+        <div class="card-header">
+            <div
+                class="card-header-title font-size-lg text-capitalize font-weight-normal"
+            >
+                Trạng thái bãi đỗ xe
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table
+                class="align-middle text-truncate mb-0 table table-borderless table-hover"
+            >
+                <thead>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th class="text-center">Tên bãi đỗ</th>
+                        <th class="text-center">Sức chứa</th>
+                        <th class="text-center">Địa điểm</th>
+                        <th class="text-center">
+                            Status
+                        </th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let parking of parking | filter: searchText">
+                        <td class="text-center text-info" style="width: 80px;">
+                            {{ parking.id }}
+                        </td>
+                        <td class="text-center text-body">
+                            {{ parking.parkingName }}
+                        </td>
+                        <td class="text-center text-body">
+                            {{ parking.capacity }}
+                        </td>
+                        <td class="text-center text-body">
+                            {{ parking.address }}
+                        </td>
+                        <td class="text-center">
+                            <button
+                                type="button"
+                                [ngStyle]="{
+                                    'background-color':
+                                        parking.status === 'APPROVED'
+                                            ? '#228B22'
+                                            : '#B22222'
+                                }"
+                                class="btn btn-outline-light"
+                                routerLink="/home/parkingDetail/{{ parking.id }}"
+                            >
+                                {{ parking.status }}
+                            </button>
+                        </td>
+                        <td class="text-center text-body">
+                            <button
+                                class="border-0 btn-transition btn btn-outline-danger text-center"
+                                (click)="delete(parking.id)"
+                            >
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                        <!--{{parking.status}}//-->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

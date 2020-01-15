@@ -16,6 +16,7 @@ export class AnalyticsComponent implements OnInit {
     numberActive: number;
     public searchText;
     subTotal = 0;
+    numberPending =0;
 
     constructor(private parkingServiece: ParkingService) {}
     // search(searchedString: string): void {
@@ -52,6 +53,14 @@ export class AnalyticsComponent implements OnInit {
         for (let parking of this.parking) {
             if (parking.status === "APPROVED") {
                 this.subTotal++;
+            }
+        }
+    }
+    clcPending() {
+        this.numberPending = 0;
+        for (let parking of this.parking) {
+            if (parking.status === "PENDING") {
+                this.numberPending++;
             }
         }
     }
